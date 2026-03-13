@@ -1,0 +1,21 @@
+name: lcars_ui
+description: "A Flutter package providing Star Trek LCARS (Library Computer Access and Retrieval System) theme and widgets."
+version: 0.0.1
+homepage: https://github.com/antoine/lcars_ui
+
+environment:
+  sdk: '>=3.11.1 <4.0.0'
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^8.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
