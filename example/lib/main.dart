@@ -10,11 +10,14 @@ class LcarsDemoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'LCARS UI Demo',
-      debugShowCheckedModeBanner: false,
-      theme: LcarsTheme.dark,
-      home: const LcarsDemoScreen(),
+    return MouseRegion(
+      cursor: SystemMouseCursors.none,
+      child: MaterialApp(
+        title: 'LCARS UI Demo',
+        debugShowCheckedModeBanner: false,
+        theme: LcarsTheme.dark,
+        home: const LcarsDemoScreen(),
+      ),
     );
   }
 }
