@@ -1,0 +1,17 @@
+name: lcars_ui_example
+description: "Demonstrates the lcars_ui Flutter package."
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: '>=3.11.1 <4.0.0'
+  flutter: ">=3.3.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  lcars_ui:
+    path: ../
+
+flutter:
+  uses-material-design: true
