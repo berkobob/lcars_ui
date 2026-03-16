@@ -5,10 +5,9 @@ import 'colors.dart';
 class LcarsTheme {
   static ThemeData get dark {
     final base = ThemeData.dark();
-    final textTheme = GoogleFonts.antonioTextTheme(base.textTheme).apply(
-      bodyColor: Colors.white,
-      displayColor: Colors.white,
-    );
+    final textTheme = GoogleFonts.antonioTextTheme(
+      base.textTheme,
+    ).apply(bodyColor: Colors.white, displayColor: Colors.white);
 
     return base.copyWith(
       scaffoldBackgroundColor: LcarsColors.black,

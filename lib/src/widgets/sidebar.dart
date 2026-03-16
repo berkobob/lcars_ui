@@ -5,20 +5,14 @@ class LcarsSidebar extends StatelessWidget {
   final List<Widget> children;
   final String? title;
 
-  const LcarsSidebar({
-    super.key,
-    required this.children,
-    this.title,
-  });
+  const LcarsSidebar({super.key, required this.children, this.title});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 150,
       padding: const EdgeInsets.only(left: 10, top: 20, bottom: 20, right: 10),
-      decoration: const BoxDecoration(
-        color: Colors.transparent,
-      ),
+      decoration: const BoxDecoration(color: Colors.transparent),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -45,10 +39,12 @@ class LcarsSidebar extends StatelessWidget {
             ),
             const SizedBox(height: 5),
           ],
-          ...children.map((child) => Padding(
-                padding: const EdgeInsets.only(bottom: 5),
-                child: child,
-              )),
+          ...children.map(
+            (child) => Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: child,
+            ),
+          ),
           const Spacer(),
           Container(
             height: 40,

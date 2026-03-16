@@ -31,7 +31,7 @@ class LcarsDemoScreen extends StatefulWidget {
 
 class _LcarsDemoScreenState extends State<LcarsDemoScreen> {
   String _lastAction = 'Awaiting input';
-  double _sliderValue = 60;
+  double _sliderValue = 6.5;
 
   void _onAction(String label) {
     setState(() => _lastAction = label);
@@ -95,7 +95,11 @@ class _LcarsDemoScreenState extends State<LcarsDemoScreen> {
                   const SizedBox(width: 12),
                   Expanded(
                     child: SingleChildScrollView(
-                      padding: const EdgeInsets.only(top: 20, right: 20, bottom: 20),
+                      padding: const EdgeInsets.only(
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
@@ -131,9 +135,7 @@ class _LcarsDemoScreenState extends State<LcarsDemoScreen> {
             width: 150,
             decoration: const BoxDecoration(
               color: LcarsColors.gold,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-              ),
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(30)),
             ),
           ),
           const SizedBox(width: 12),
@@ -233,7 +235,11 @@ class _LcarsDemoScreenState extends State<LcarsDemoScreen> {
           width: 130,
           child: Text(
             label.toUpperCase(),
-            style: TextStyle(color: color, fontSize: 12, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: color,
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         Expanded(
@@ -338,53 +344,26 @@ class _LcarsDemoScreenState extends State<LcarsDemoScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Text(
-                'Warp Factor'.toUpperCase(),
-                style: const TextStyle(
-                  color: LcarsColors.peach,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const Spacer(),
-              Text(
-                _sliderValue.toStringAsFixed(0),
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
+          LcarsSlider(
+            label: 'Warp Factor',
+            value: _sliderValue,
+            min: 0,
+            max: 10,
+            fractionDigits: 1,
+            onChanged: (v) {
+              setState(() => _sliderValue = v);
+              SoundService.playLcarsSlider();
+            },
           ),
-          SliderTheme(
-            data: SliderTheme.of(context).copyWith(
-              activeTrackColor: LcarsColors.gold,
-              inactiveTrackColor: LcarsColors.darkOrange,
-              thumbColor: LcarsColors.lightGold,
-              overlayColor: LcarsColors.gold.withValues(alpha: 0.2),
-              trackHeight: 6,
-            ),
-            child: Slider(
-              value: _sliderValue,
-              min: 0,
-              max: 100,
-              onChanged: (v) {
-                setState(() => _sliderValue = v);
-                SoundService.playLcarsSlider();
-              },
-            ),
-          ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           Row(
             children: [
               LcarsButton(
                 label: 'Engage',
                 color: LcarsColors.gold,
                 shape: LcarsButtonShape.pill,
-                onPressed: () => _onAction('Engage warp ${_sliderValue.toStringAsFixed(0)}'),
+                onPressed: () =>
+                    _onAction('Engage warp ${_sliderValue.toStringAsFixed(1)}'),
               ),
               const SizedBox(width: 12),
               LcarsButton(
@@ -413,9 +392,7 @@ class _LcarsDemoScreenState extends State<LcarsDemoScreen> {
             width: 150,
             decoration: const BoxDecoration(
               color: LcarsColors.darkOrange,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-              ),
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30)),
             ),
           ),
           const SizedBox(width: 12),

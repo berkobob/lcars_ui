@@ -18,9 +18,7 @@ class LcarsCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
-        border: Border(
-          left: BorderSide(color: color, width: 6),
-        ),
+        border: Border(left: BorderSide(color: color, width: 6)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
